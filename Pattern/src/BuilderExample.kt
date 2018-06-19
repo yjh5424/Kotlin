@@ -1,3 +1,5 @@
+import kotlin.properties.Delegates
+
 class BuilderExample(builder : Builder){
 
     private var id : Int
@@ -27,6 +29,7 @@ class BuilderExample(builder : Builder){
         fun build() : BuilderExample{
             return BuilderExample(this)
         }
+
     }
 
     override fun toString(): String {
@@ -36,6 +39,6 @@ class BuilderExample(builder : Builder){
 
 fun main(array: Array<String>){
 
-    var example=BuilderExample.Builder().setId(20).setString("윤정현").build()
+    var example=BuilderExample.Builder().setId(19).setString("윤정현").build()
     println(example.toString())
 }
