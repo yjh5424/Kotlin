@@ -3,11 +3,13 @@ import kotlin.properties.Delegates
 
 class ObserverExample{
 
+    //객체 변경을 통지받고 업데이트 할 내용들
     interface ValueChangeObserver {
         fun onValueChanged(value : String)
         fun onStringUpper(str : String)
     }
 
+    // 업데이트 내용 구현체
     class ValueChangeObserverImpl : ValueChangeObserver{
         override fun onStringUpper(str: String){
             println(str.toUpperCase())
@@ -19,6 +21,10 @@ class ObserverExample{
 
     }
 
+    //객체의 상태를 바꿔주는 클래스
+    //추가적으로 어떤 객체를 변경하는 클래스를 만들면 모든 종속된 객체에 자동으로 통지해주고 업데이트를 해준다.
+    //구현체에다가 함수만 선언하여 연결함으로써 유지보수에 도움된다.
+
     class ObservableChangeText(observer: ValueChangeObserver){
         var text : String by Delegates.observable(
                 initialValue = "default",
@@ -28,7 +34,6 @@ class ObserverExample{
                 })
     }
 
-    //추가적으로 어떤 객체를 변경하는 클래스를 만들면 모든 종속된 객체에 자동으로 통지해주고 업데이트를 해준다,
     class ObservableChangeStringUpper(observer: ValueChangeObserver){
         var text : String by Delegates.observable(
                 initialValue = "default",
