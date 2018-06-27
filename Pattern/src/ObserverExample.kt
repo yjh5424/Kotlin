@@ -18,7 +18,7 @@ class ObserverExample{
         override fun onValueChanged(value: String) {
             println("changeValue is $value")
         }
-
+        
     }
 
     //객체의 상태를 바꿔주는 클래스

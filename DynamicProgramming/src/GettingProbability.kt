@@ -32,6 +32,7 @@ class GettingProbability{
             println(plusMatchRate)
             println(matchRate)
 
+
         }
 
     }
